@@ -1,0 +1,421 @@
+/* Reset بعض الإعدادات الافتراضية للمتصفح */
+body, h1, h2, h3, p, ul, table, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/* إعدادات الخطوط والخلفيات */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #fcf5f5;
+    background-color: #f4f4f4;
+    padding-top: 80px; /* لتجنب التداخل مع الهيدر الثابت */
+}
+
+/* تصميم الهيدر */
+header {
+    background-color: #08089d;
+    color: white;
+    padding: 10px 10px;
+    display: flex;
+    align-items: right;
+    justify-content: flex-start; /* يحافظ على الاتجاه الأفقي */
+    gap: 20px; /* مسافة بين الصورة والعنوان */
+    border-bottom: 10px solid rgb(9, 0, 138)
+}
+
+/* الشعار */
+.header-logo {
+    width: 30px; /* حجم الشعار الأساسي */
+    height: auto; /* النسبة التلقائية للارتفاع */
+    border-radius: 50%; /* جعل الشعار دائريًا */
+    cursor: pointer; /* تغيير مؤشر الفأرة عند التحويم */
+    transition: transform 0.3s ease-in-out;
+}
+
+.header-logo:hover {
+    transform: scale(1.1); /* تكبير الشعار قليلاً عند التحويم */
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+header p {
+    margin: 5px 0 0;
+}
+
+
+/* تصميم الأقسام العامة */
+section {
+    padding: 2rem;
+    margin: 1rem auto;
+    background: #5d4ab1;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    text-align: center;
+    width: 80%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* الروابط داخل الأقسام */
+section a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 1rem 0;
+}
+
+section a:hover {
+    color: #ffcc00;
+}
+
+section img {
+    max-width: 100px;
+    margin: 10px auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+section img:hover {
+    transform: scale(1.1);
+}
+
+/* تصميم الجداول */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #08089d;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* تصميم الفيديوهات */
+video {
+    width: 80%;
+    margin: 20px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* تصميم الأزرار */
+button, .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button:hover, .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:active, .btn:active {
+    transform: scale(0.95);
+}
+
+/* الفوتر */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #0603aa;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 999;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* تأثيرات الصور والفيديوهات */
+.gallery img {
+    max-width: 200px;
+    margin: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* إعدادات للشاشات الأصغر */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* يجعل الصورة فوق النص في الشاشات الأصغر */
+        gap: 10px;
+    }
+
+    .header-logo {
+        width: 40px; /* حجم أصغر للشعار */
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        width: 90%;
+    }
+
+    video {
+        width: 95%;
+    }
+}
+/* Reset بعض الإعدادات الافتراضية للمتصفح */
+body, h1, h2, h3, p, ul, table, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/* إعدادات الخطوط والخلفيات */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #fcf5f5;
+    background-color: #f4f4f4;
+    padding-top: 80px; /* لضمان عدم تداخل المحتوى مع الهيدر الثابت */
+}
+
+/* تصميم الهيدر */
+header {
+    background-color: #08089d;
+    color: white;
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* لضمان توزيع المحتوى أفقيًا */
+    gap: 20px;
+    border-bottom: 5px solid #0603aa;
+    position: sticky; /* يجعل الهيدر ثابتًا في أعلى الصفحة */
+    top: 0;
+    z-index: 1000;
+}
+
+.header-logo {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.header-logo:hover {
+    transform: scale(1.1);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+}
+
+/* تصميم الأقسام العامة */
+section {
+    padding: 2rem;
+    margin: 1rem auto;
+    background: #5d4ab1;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    text-align: center;
+    width: 80%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+section a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 1rem 0;
+}
+
+section a:hover {
+    color: #ffcc00;
+}
+
+section img {
+    max-width: 100px;
+    margin: 10px auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+section img:hover {
+    transform: scale(1.1);
+}
+
+/* تصميم الجداول */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #08089d;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* تصميم الفيديوهات */
+video {
+    width: 80%;
+    margin: 20px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* تصميم الأزرار */
+button, .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button:hover, .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:active, .btn:active {
+    transform: scale(0.95);
+}
+
+/* الفوتر */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #0603aa;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 999;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* تأثيرات الصور والفيديوهات */
+.gallery img {
+    max-width: 200px;
+    margin: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* إعدادات للشاشات الأصغر */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-logo {
+        width: 40px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        width: 90%;
+    }
+
+    video {
+        width: 95%;
+    }
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أعضاء الفريق - نادي السنبلاوين الرياضي</title>
+    <style>
+        /* تنسيق عام */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #0055a5;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%; /* يجعل الصورة دائرية */
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .header-text h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .header-text p {
+            margin: 5px 0 0;
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        table th {
+            background-color: #0055a5;
+            color: #fff;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:hover {
+            background-color: #ddd;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #0055a5;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="photo/logo.jpg" alt="شعار نادي السنبلاوين الرياضي">
+        </a>
+        <div class="header-text">
+            <h1>أهلاً بك في نادي السنبلاوين الرياضي</h1>
+            <p>تابع أسماء اللاعبين والجهاز الفني والإداري</p>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>جدول اللاعبين</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>أسماء المدربين</th>
+                        <th>أسماء الحراس</th>
+                        <th>أسماء المدافعين</th>
+                        <th>أسماء الوسط</th>
+                        <th>أسماء المهاجمين</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>أحمد عمران (المدير الفني)</td>
+                        <td>توفيق أيوب</td>
+                        <td>محمد</td>
+                        <td>محمود فوزي</td>
+                        <td>شيكا</td>
+                    </tr>
+                    <tr>
+                        <td>سيف</td>
+                        <td>عبد الله</td>
+                        <td>هاني</td>
+                        <td>إسماعيل</td>
+                        <td>محمد</td>
+                    </tr>
+                    <tr>
+                        <td>عبد الرحمن</td>
+                        <td>إبراهيم</td>
+                        <td>بلال</td>
+                        <td>مصطفى</td>
+                        <td>أحمد</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 نادي السنبلاوين الرياضي. جميع الحقوق محفوظة.</p>
+    </footer>
+</body>
+</html>

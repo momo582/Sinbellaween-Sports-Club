@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اخر الفيديوهات - نادي السنبلاوين الرياضي</title>
+    <style>
+        /* تنسيقات عامة */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #0055a5;
+            color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header a img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%; /* جعل الشعار دائريًا */
+            cursor: pointer;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        /* معرض الفيديوهات */
+        .video-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .video-item {
+            flex: 1 1 300px; /* عرض الفيديو لا يقل عن 300px */
+            max-width: 400px;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #0055a5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #0055a5;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="photo/logo.jpg" alt="شعار النادي">
+        </a>
+        <h1>أحدث فيديوهات نادي السنبلاوين</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>فيديوهات النادي</h2>
+            <div class="video-gallery">
+                <div class="video-item">
+                    <video controls>
+                        <source src="video/AQMnOvO3a6jEVZcibT0yrWofgyk_xgJafM5sDRPKpMnE5s5h2hOUfVfUT2c-45R_P0xXHs_vHEhsuReJ20E9_uGA.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-item">
+                    <video controls>
+                        <source src="video/AQN3BRU9Q0M2-BmskJBDRTy_BwOPGDbubHLjYWas900d4NTHY22qXV2d3CWf5qbPC6Lfz7nEwYxF5KwWnQDTFjk8.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-item">
+                    <video controls>
+                        <source src="video/AQNb40AOtQX-K3CJVZ_b6xdcgfHTncn4PSZss9DGVX6Y-dVL7h1FhFF9ZIrvVdbik6_wVssELDcEojrYM7a-siFP.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 نادي السنبلاوين الرياضي. جميع الحقوق محفوظة.</p>
+    </footer>
+</body>
+</html>
