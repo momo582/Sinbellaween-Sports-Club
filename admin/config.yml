@@ -1,0 +1,16 @@
+backend:
+  name: github
+  repo: momo582/Sinbellaween-Sports-Club # اسم مستودع GitHub الخاص بك
+  branch: main # اسم الفرع الأساسي (main)
+
+media_folder: "photos/uploads" # مكان رفع الصور داخل المشروع
+public_folder: "/photos/uploads" # المسار العلني للصور
+
+collections:
+  - name: "posts" # قسم المقالات
+    label: "Posts" # الاسم الذي سيظهر بلوحة التحكم
+    folder: "content/posts" # مجلد تخزين المقالات
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"} # عنوان المقالة
+      - {label: "Body", name: "body", widget: "markdown"} # محتوى المقالة
