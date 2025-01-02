@@ -1,16 +1,17 @@
 backend:
-  name: github
-  repo: momo582/Sinbellaween-Sports-Club # اسم مستودعك
-  branch: main # أو master حسب فرع مشروعك
+  name: git-gateway
+  branch: main # أو أي فرع بتستخدمه
+  repo: momo582/Sinbellaween-Sports-Club
 
-media_folder: "photos/uploads" # مسار رفع الصور
-public_folder: "/photos/uploads"
+media_folder: "assets/images" # مسار رفع الصور
+public_folder: "/assets/images" # رابط الصور
 
 collections:
-  - name: "posts"
+  - name: "posts" # اسم القسم
     label: "Posts"
-    folder: "content/posts"
+    folder: "content/posts" # مكان تخزين المقالات
     create: true
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Image", name: "image", widget: "image" }
