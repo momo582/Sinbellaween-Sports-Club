@@ -3,13 +3,13 @@ backend:
   branch: main # أو أي فرع بتستخدمه
   repo: momo582/Sinbellaween-Sports-Club
 
-media_folder: "assets/images" # مسار رفع الصور
-public_folder: "/assets/images" # رابط الصور
+media_folder: "assets/photos" # مسار رفع الصور
+public_folder: "/assets/photos" # رابط الصور
 
 collections:
-  - name: "posts" # اسم القسم
-    label: "Posts"
-    folder: "content/posts" # مكان تخزين المقالات
+  - name: "news" # اسم القسم
+    label: "news"
+    folder: "content/news" # مكان تخزين المقالات
     create: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
