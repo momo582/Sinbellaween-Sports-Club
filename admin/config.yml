@@ -1,7 +1,12 @@
 backend:
-  name: git-gateway
-  branch: main # أو أي فرع بتستخدمه
+  name: github
   repo: momo582/Sinbellaween-Sports-Club
+  branch: main
+  auth_scope: public_repo
+  base_url: https://momo582.github.io
+  auth_endpoint: /admin
+  client_id: Ov23lim4AalzkX4IuP4B
+  client_secret: YOUR_CLIENT_SECRET
 
 media_folder: "assets/photos" # مسار رفع الصور
 public_folder: "/assets/photos" # رابط الصور
