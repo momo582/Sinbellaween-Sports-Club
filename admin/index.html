@@ -6,7 +6,30 @@
   </head>
   <body>
     <script>
-      CMS.init();
+      CMS.init({
+        config: {
+          backend: {
+            name: "github",
+            repo: "momo582/Sinbellaween-Sports-Club",
+            branch: "main"
+          },
+          media_folder: "assets/photos",
+          public_folder: "/assets/photos",
+          collections: [
+            {
+              name: "news",
+              label: "News",
+              folder: "content/news",
+              create: true,
+              fields: [
+                { label: "Title", name: "title", widget: "string" },
+                { label: "Body", name: "body", widget: "markdown" },
+                { label: "Image", name: "image", widget: "image" }
+              ]
+            }
+          ]
+        }
+      });
     </script>
   </body>
 </html>
