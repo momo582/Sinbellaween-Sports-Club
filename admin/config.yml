@@ -1,22 +1,17 @@
 backend:
-  name: github
-  repo: momo582/Sinbellaween-Sports-Club
+  name: git-gateway
   branch: main
-  auth_scope: public_repo
-  base_url: https://momo582.github.io
-  auth_endpoint: /admin
-  client_id: Ov23lim4AalzkX4IuP4B
-  client_secret: YOUR_CLIENT_SECRET
 
-media_folder: "assets/photos" # مسار رفع الصور
-public_folder: "/assets/photos" # رابط الصور
+media_folder: "photo" # مجلد الصور
+public_folder: "/photo"
 
 collections:
-  - name: "news" # اسم القسم
-    label: "news"
-    folder: "content/news" # مكان تخزين المقالات
+  - name: "news"
+    label: "الأخبار"
+    folder: "news" # مجلد الأخبار
     create: true
+    slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Image", name: "image", widget: "image" }
+      - {label: "عنوان الخبر", name: "title", widget: "string"}
+      - {label: "محتوى الخبر", name: "body", widget: "markdown"}
+
