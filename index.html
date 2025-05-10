@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نادي السنبلاوين الرياضي</title>
+    <!-- Favicon -->
     <link rel="icon" href="photo/logo.ico" type="image/x-icon">
+    <!-- Google Verification -->
     <meta name="google-site-verification" content="KJbkjcVI3yWEf76UhDbwmnm74IlOvfeuntqzIaU8kN8" />
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -20,130 +23,294 @@
     }
     </script>
     <style>
-        /* سيتم وضع كود الـ CSS هنا */
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* تنسيق عام */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        /* الهيدر */
+        header {
+            background-color: #08089d;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 5px solid #0603aa;
+        }
+
+        .header-logo {
+            width: 60px;
+            height: auto;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .header-logo:hover {
+            transform: scale(1.1);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+        }
+
+        /* السلايدر */
+        .slider-container {
+            position: relative;
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .slides img {
+            width: 100%;
+            height: auto;
+            display: none;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .slides img.active {
+            display: block;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            font-size: 18px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 50%;
+            z-index: 10;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: #0056b3;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* الأقسام */
+        section {
+            padding: 2rem;
+            margin: 1rem auto;
+            background: #5d4ab1;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        section a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 1rem 0;
+        }
+
+        section a:hover {
+            color: #ffcc00;
+        }
+
+        section img {
+            max-width: 100px;
+            margin: 10px auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        section img:hover {
+            transform: scale(1.1);
+        }
+
+        /* صورة الراعي */
+        .sponsor {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .sponsor-logo {
+            width: 150px;
+            height: auto;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .sponsor-logo:hover {
+            transform: scale(1.1);
+        }
+
+        /* الفوتر */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #0603aa;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .slider-container {
+                width: 95%;
+            }
+
+            section {
+                width: 90%;
+            }
+
+            .header-logo {
+                width: 50px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- الهيدر -->
     <header>
         <a href="index.html">
             <img src="photo/logo.jpg" alt="شعار النادي" class="header-logo">
         </a>
-        <div>
-            <h1>نادي السنبلاوين الرياضي</h1>
-            <p>تابع آخر الأخبار، الصور، والفيديوهات الحصرية.</p>
-        </div>
+        <h1>نادي السنبلاوين الرياضي</h1>
+        <p>تابع آخر الأخبار، الصور، والفيديوهات الحصرية.</p>
     </header>
 
-    <div class="container">
-        <aside class="sidebar">
-            <img src="photo/jersey1.png" alt="تيشيرت النادي">
-            <img src="photo/jersey2.png" alt="تيشيرت النادي الاحتياطي">
-        </aside>
-
-        <main class="main-content">
-            <section class="club-info">
-                <h2>عن نادي السنبلاوين الرياضي</h2>
-                <p>هنا هيكون كلام تعريفي عن تاريخ النادي وإنجازاته وأهدافه. يمكنك إضافة فقرات متعددة لتغطية جوانب مختلفة من النادي.</p>
-                <a href="about.html">اقرأ المزيد عن النادي</a>
-            </section>
-
-            <section class="team photos-section">
-                <h2>أعضاء الفريق</h2>
-                <div class="team-members">
-                    <div class="team-member">
-                        <img src="photo/player1.jpg" alt="لاعب 1">
-                        <p>اسم اللاعب 1</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="photo/player2.jpg" alt="لاعب 2">
-                        <p>اسم اللاعب 2</p>
-                    </div>
-                    </div>
-                <a href="team.html">تعرف على جميع أعضاء الفريق</a>
-            </section>
-
-            <section class="photos-section">
-                <h2>آخر الصور</h2>
-                <div class="photos-grid">
-                    <img src="photo/460398646_533084115896081_1779551710318789330_n.jpg" alt="صورة 1">
-                    <img src="photo/460036989_529786876225805_2979376982870754263_n.jpg" alt="صورة 2">
-                    <img src="photo/459371223_503225569126634_5346668128862271414_n.jpg" alt="صورة 3">
-                    </div>
-                <a href="photos.html">شاهد المزيد من الصور</a>
-            </section>
-
-            <section class="schedule-section">
-                <h2>جدول المباريات والترتيب</h2>
-                <table class="schedule-table">
-                    <thead>
-                        <tr>
-                            <th>التاريخ</th>
-                            <th>الفريق المنافس</th>
-                            <th>المباراة</th>
-                            <th>الملعب</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2024-12-25</td>
-                            <td>فريق 1</td>
-                            <td>السنبلاوين ضد فريق 1</td>
-                            <td>ملعب السنبلاوين</td>
-                        </tr>
-                        </tbody>
-                </table>
-                <a href="schedule.html">عرض جدول المباريات والترتيب كاملًا</a>
-            </section>
-
-            <section class="videos-section">
-                <h2>آخر الفيديوهات</h2>
-                <div class="videos-list">
-                    <div class="video-item">
-                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/your_video_id_1" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-item">
-                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/your_video_id_2" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    </div>
-                <a href="videos.html">شاهد المزيد من الفيديوهات</a>
-            </section>
-
-            <section class="news-section">
-                <h2>آخر الأخبار</h2>
-                <div class="news-item">
-                    <h3>عنوان الخبر الأول</h3>
-                    <p>مقتطف من الخبر الأول...</p>
-                    <a href="news.html">اقرأ المزيد</a>
-                </div>
-                <div class="news-item">
-                    <h3>عنوان الخبر الثاني</h3>
-                    <p>مقتطف من الخبر الثاني...</p>
-                    <a href="news.html">اقرأ المزيد</a>
-                </div>
-                </section>
-        </main>
+    <!-- السلايدر -->
+    <div class="slider-container">
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <div class="slides">
+            <img src="photo/460398646_533084115896081_1779551710318789330_n.jpg" class="active" loading="lazy" alt="صورة 1">
+            <img src="photo/460036989_529786876225805_2979376982870754263_n.jpg" loading="lazy" alt="صورة 2">
+            <img src="photo/459371223_503225569126634_5346668128862271414_n.jpg" loading="lazy" alt="صورة 3">
+            <img src="photo/266775664_112733744585020_4813632058570573109_n.jpg" loading="lazy" alt="صورة 4">
+        </div>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
     </div>
 
+    <!-- الأقسام -->
+    <main>
+        <section>
+            <a href="about.html">
+                <h2>حول الموقع</h2>
+                <p>كل ما يخص أخبار نادي السنبلاوين الرياضي.</p>
+            </a>
+        </section>
+
+        <section>
+            <a href="team.html">
+                <h2>أعضاء الفريق</h2>
+                <p>تعرف على لاعبي الفريق والإداريين.</p>
+            </a>
+        </section>
+
+        <section>
+            <a href="photos.html">
+                <h2>آخر الصور</h2>
+                <p>شاهد الصور الحصرية للنادي.</p>
+            </a>
+        </section>
+
+        <section>
+            <a href="schedule.html">
+                <h2>جدول المباريات والترتيب</h2>
+                <p>جدول مباريات النادي وجدول الترتيب</p>
+            </a>
+        </section>
+
+        <section>
+            <a href="videos.html">
+                <h2>آخر الفيديوهات</h2>
+                <p>شاهد الفيديوهات الحصرية للنادي.</p>
+            </a>
+        </section>
+
+        <section>
+            <a href="news.html">
+                <h2>آخر الأخبار</h2>
+                <p>شاهد الأخبار الحصرية للنادي.</p>
+            </a>
+        </section>
+    </main>
+
+    <!-- صورة الراعي -->
+    <div class="sponsor">
+        <img src="photo/download.png" alt="صورة الراعي" class="sponsor-logo">
+        <img src="photo/Screenshot2024.png" alt="صورة الراعي" class="sponsor-logo">
+    </div>
+
+    <!-- الفوتر -->
     <footer>
-        <p>© 2024 نادي السنبلاوين الرياضي. جميع الحقوق محفوظة.</p>
+        <p>&copy; 2024 نادي السنبلاوين الرياضي. جميع الحقوق محفوظة.</p>
     </footer>
 
     <script>
-        function revealSections() {
-            const sections = document.querySelectorAll('.club-info, .team, .photos-section, .schedule-section, .videos-section, .news-section');
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                const revealPoint = 150;
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slides img');
 
-                if (sectionTop < windowHeight - revealPoint) {
-                    section.classList.add('show');
-                }
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
             });
         }
 
-        window.addEventListener('scroll', revealSections);
-        revealSections();
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 3000); // تشغيل تلقائي للسلايدر كل 3 ثواني
     </script>
 </body>
 </html>
