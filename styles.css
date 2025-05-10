@@ -1,206 +1,160 @@
-/* Reset */
-* {
+/* Reset بعض الإعدادات الافتراضية للمتصفح */
+body, h1, h2, h3, p, ul, table, th, td {
     margin: 0;
     padding: 0;
+    border: 0;
     box-sizing: border-box;
 }
 
+/* إعدادات الخطوط والخلفيات */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: #fcf5f5;
     background-color: #f4f4f4;
-    padding-top: 60px;
-    display: flex; /* لترتيب الشريط الجانبي والمحتوى */
-    flex-direction: row; /* الشريط الجانبي على الشمال والمحتوى على اليمين */
-    min-height: 100vh;
+    padding-top: 80px; /* لتجنب التداخل مع الهيدر الثابت */
 }
 
+/* تصميم الهيدر */
 header {
     background-color: #08089d;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 10px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    border-bottom: 5px solid #0603aa;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
+    align-items: right;
+    justify-content: flex-start; /* يحافظ على الاتجاه الأفقي */
+    gap: 20px; /* مسافة بين الصورة والعنوان */
+    border-bottom: 10px solid rgb(9, 0, 138)
 }
 
+/* الشعار */
 .header-logo {
-    width: 40px;
-    height: auto;
-    border-radius: 50%;
-    cursor: pointer;
+    width: 30px; /* حجم الشعار الأساسي */
+    height: auto; /* النسبة التلقائية للارتفاع */
+    border-radius: 50%; /* جعل الشعار دائريًا */
+    cursor: pointer; /* تغيير مؤشر الفأرة عند التحويم */
     transition: transform 0.3s ease-in-out;
 }
 
 .header-logo:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* تكبير الشعار قليلاً عند التحويم */
 }
 
 header h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin: 0;
 }
 
 header p {
     margin: 5px 0 0;
-    font-size: 0.8rem;
 }
 
-.container {
-    display: flex;
-    width: 80%;
-    margin: 20px auto;
-}
 
-/* الشريط الجانبي لصور التيشيرتات */
-.sidebar {
-    width: 150px; /* عرض الشريط الجانبي */
-    background-color: #f8f8f8;
-    padding: 20px 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* تصميم الأقسام العامة */
+section {
+    padding: 2rem;
+    margin: 1rem auto;
+    background: #5d4ab1;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-right: 20px; /* مسافة بين الشريط الجانبي والمحتوى */
-    position: sticky; /* يلتصق عند التمرير */
-    top: 80px; /* مسافة من أعلى بعد الهيدر الثابت */
-    height: fit-content; /* ياخد طول محتواه */
+    color: white;
+    text-align: center;
+    width: 80%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.sidebar img {
-    width: 80px;
-    height: auto;
-    margin-bottom: 15px;
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* الروابط داخل الأقسام */
+section a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 1rem 0;
+}
+
+section a:hover {
+    color: #ffcc00;
+}
+
+section img {
+    max-width: 100px;
+    margin: 10px auto;
+    display: block;
     transition: transform 0.3s ease-in-out;
 }
 
-.sidebar img:hover {
+section img:hover {
     transform: scale(1.1);
 }
 
-/* حاوية المحتوى الرئيسية */
-.main-content {
-    flex-grow: 1; /* ياخد باقي المساحة المتاحة */
-    padding-bottom: 60px; /* مساحة للفوتر الثابت */
-}
-
-/* تصميم الأقسام */
-.club-info, .team, .photos-section, .schedule-section, .videos-section, .news-section {
-    padding: 2rem;
-    margin-bottom: 2rem;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.club-info.show, .team.show, .photos-section.show, .schedule-section.show, .videos-section.show, .news-section.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.club-info h2, .team h2, .photos-section h2, .schedule-section h2, .videos-section h2, .news-section h2 {
-    color: #08089d;
-    margin-bottom: 1rem;
-}
-
-.club-info p {
-    color: #333;
-    line-height: 1.8;
-}
-
-.team-members {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.team-member {
-    width: 150px;
-    text-align: center;
-}
-
-.team-member img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    margin-bottom: 5px;
-}
-
-.photos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.photos-grid img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.schedule-table {
-    width: 100%;
+/* تصميم الجداول */
+table {
+    width: 90%;
+    margin: 20px auto;
     border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.schedule-table th, .schedule-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
     text-align: center;
-}
-
-.schedule-table th {
-    background-color: #08089d;
-    color: white;
-}
-
-.videos-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.video-item {
+    background-color: #fff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.news-item {
-    text-align: left;
-    padding: 15px;
-    border-bottom: 1px solid #eee;
+th, td {
+    padding: 12px 20px;
+    border: 1px solid #ddd;
 }
 
-.news-item h3 {
-    color: #08089d;
-    margin-bottom: 5px;
+th {
+    background-color: #08089d;
+    color: white;
+    font-weight: bold;
 }
 
-.news-item p {
-    color: #666;
+td {
+    color: #333;
 }
 
-.news-item:last-child {
-    border-bottom: none;
+tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* تصميم الفيديوهات */
+video {
+    width: 80%;
+    margin: 20px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* تصميم الأزرار */
+button, .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button:hover, .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:active, .btn:active {
+    transform: scale(0.95);
 }
 
 /* الفوتر */
@@ -219,50 +173,249 @@ footer p {
     margin: 0;
 }
 
+/* تأثيرات الصور والفيديوهات */
+.gallery img {
+    max-width: 200px;
+    margin: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
 /* إعدادات للشاشات الأصغر */
 @media (max-width: 768px) {
-    body {
-        flex-direction: column;
-        align-items: center;
-        padding-top: 110px;
-    }
-
     header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 10px;
+        flex-direction: column; /* يجعل الصورة فوق النص في الشاشات الأصغر */
+        gap: 10px;
     }
 
-    .container {
-        flex-direction: column;
+    .header-logo {
+        width: 40px; /* حجم أصغر للشعار */
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        width: 90%;
+    }
+
+    video {
         width: 95%;
     }
+}
+/* Reset بعض الإعدادات الافتراضية للمتصفح */
+body, h1, h2, h3, p, ul, table, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
 
-    .sidebar {
-        position: static;
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-around;
-        margin-bottom: 20px;
-        top: auto;
-        margin-right: 0;
+/* إعدادات الخطوط والخلفيات */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #fcf5f5;
+    background-color: #f4f4f4;
+    padding-top: 80px; /* لضمان عدم تداخل المحتوى مع الهيدر الثابت */
+}
+
+/* تصميم الهيدر */
+header {
+    background-color: #08089d;
+    color: white;
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* لضمان توزيع المحتوى أفقيًا */
+    gap: 20px;
+    border-bottom: 5px solid #0603aa;
+    position: sticky; /* يجعل الهيدر ثابتًا في أعلى الصفحة */
+    top: 0;
+    z-index: 1000;
+}
+
+.header-logo {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.header-logo:hover {
+    transform: scale(1.1);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+}
+
+/* تصميم الأقسام العامة */
+section {
+    padding: 2rem;
+    margin: 1rem auto;
+    background: #5d4ab1;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    text-align: center;
+    width: 80%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+section a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 1rem 0;
+}
+
+section a:hover {
+    color: #ffcc00;
+}
+
+section img {
+    max-width: 100px;
+    margin: 10px auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+section img:hover {
+    transform: scale(1.1);
+}
+
+/* تصميم الجداول */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #08089d;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* تصميم الفيديوهات */
+video {
+    width: 80%;
+    margin: 20px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* تصميم الأزرار */
+button, .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button:hover, .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:active, .btn:active {
+    transform: scale(0.95);
+}
+
+/* الفوتر */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #0603aa;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 999;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* تأثيرات الصور والفيديوهات */
+.gallery img {
+    max-width: 200px;
+    margin: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* إعدادات للشاشات الأصغر */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .sidebar img {
-        width: 60px;
+    .header-logo {
+        width: 40px;
     }
 
-    .main-content {
-        width: 100%;
-        padding-bottom: 60px;
+    header h1 {
+        font-size: 1.5rem;
     }
 
-    .photos-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    section {
+        width: 90%;
     }
 
-    .videos-list {
-        grid-template-columns: 1fr;
+    video {
+        width: 95%;
     }
 }
