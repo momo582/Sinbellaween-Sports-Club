@@ -1,186 +1,316 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>نادي السنبلاوين الرياضي</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نادي السنبلاوين الرياضي</title>
+    <!-- Favicon -->
+    <link rel="icon" href="photo/logo.ico" type="image/x-icon">
+    <!-- Google Verification -->
+    <meta name="google-site-verification" content="KJbkjcVI3yWEf76UhDbwmnm74IlOvfeuntqzIaU8kN8" />
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "نادي السنبلاوين الرياضي",
+      "url": "https://momo582.github.io",
+      "logo": "https://momo582.github.io/photo/logo.jpg",
+      "sameAs": [
+        "https://www.facebook.com/yourpage",
+        "https://twitter.com/yourpage"
+      ]
     }
+    </script>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f2f2f2;
-      display: flex;
-      flex-direction: row-reverse;
-    }
+        /* تنسيق عام */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
 
-    /* القائمة الجانبية */
-    aside {
-      width: 220px;
-      background-color: #003366;
-      height: 100vh;
-      position: fixed;
-      top: 0;
-      right: 0;
-      padding-top: 80px;
-      color: white;
-    }
+        /* الهيدر */
+        header {
+            background-color: #08089d;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 5px solid #0603aa;
+        }
 
-    aside ul {
-      list-style: none;
-      padding: 0;
-    }
+        .header-logo {
+            width: 60px;
+            height: auto;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
 
-    aside li {
-      padding: 15px 20px;
-      border-bottom: 1px solid #005080;
-    }
+        .header-logo:hover {
+            transform: scale(1.1);
+        }
 
-    aside a {
-      color: white;
-      text-decoration: none;
-      display: block;
-    }
+        header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
 
-    aside a:hover {
-      background-color: #005080;
-      border-radius: 5px;
-    }
+        header p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+        }
 
-    /* المحتوى الرئيسي */
-    main {
-      flex-grow: 1;
-      margin-right: 240px;
-      padding: 40px 20px;
-    }
+        /* السلايدر */
+        .slider-container {
+            position: relative;
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    header {
-      background-color: #08089d;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      z-index: 1000;
-    }
+        .slides img {
+            width: 100%;
+            height: auto;
+            display: none;
+            border-radius: 8px;
+            object-fit: cover;
+        }
 
-    .news-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 100px;
-    }
+        .slides img.active {
+            display: block;
+        }
 
-    .news-card {
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      width: 300px;
-      padding: 20px;
-      transition: transform 0.3s ease;
-    }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            font-size: 18px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 50%;
+            z-index: 10;
+            transition: background-color 0.3s ease-in-out;
+        }
 
-    .news-card:hover {
-      transform: translateY(-5px);
-    }
+        .prev:hover, .next:hover {
+            background-color: #0056b3;
+        }
 
-    .news-card img {
-      width: 100%;
-      border-radius: 5px;
-      margin-top: 10px;
-    }
+        .prev {
+            left: 10px;
+        }
 
-    .news-card h3 {
-      margin-bottom: 10px;
-      color: #08089d;
-    }
+        .next {
+            right: 10px;
+        }
 
-    .news-card p {
-      font-size: 0.95rem;
-      color: #333;
-    }
+        /* الأقسام */
+        section {
+            padding: 2rem;
+            margin: 1rem auto;
+            background: #5d4ab1;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #0603aa;
-      color: white;
-      margin-top: 30px;
-    }
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
 
-    @media (max-width: 768px) {
-      aside {
-        display: none;
-      }
+        section a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 1rem 0;
+        }
 
-      main {
-        margin-right: 0;
-        padding: 80px 10px;
-      }
+        section a:hover {
+            color: #ffcc00;
+        }
 
-      .news-card {
-        width: 100%;
-      }
-    }
-  </style>
+        section img {
+            max-width: 100px;
+            margin: 10px auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        section img:hover {
+            transform: scale(1.1);
+        }
+
+        /* صورة الراعي */
+        .sponsor {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .sponsor-logo {
+            width: 150px;
+            height: auto;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .sponsor-logo:hover {
+            transform: scale(1.1);
+        }
+
+        /* الفوتر */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #0603aa;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .slider-container {
+                width: 95%;
+            }
+
+            section {
+                width: 90%;
+            }
+
+            .header-logo {
+                width: 50px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- الهيدر -->
+    <header>
+        <a href="index.html">
+            <img src="photo/logo.jpg" alt="شعار النادي" class="header-logo">
+        </a>
+        <h1>نادي السنبلاوين الرياضي</h1>
+        <p>تابع آخر الأخبار، الصور، والفيديوهات الحصرية.</p>
+    </header>
 
-  <!-- الشريط الجانبي -->
-  <aside>
-    <ul>
-      <li><a href="#about">حول الموقع</a></li>
-      <li><a href="#team">أعضاء الفريق</a></li>
-      <li><a href="#photos">آخر الصور</a></li>
-      <li><a href="#schedule">جدول المباريات والترتيب</a></li>
-      <li><a href="#videos">آخر الفيديوهات</a></li>
-      <li><a href="#news">آخر الأخبار</a></li>
-    </ul>
-  </aside>
-
-  <!-- الهيدر -->
-  <header>
-    <h1>نادي السنبلاوين الرياضي</h1>
-    <p>تابع آخر الأخبار، الصور، والفيديوهات الحصرية.</p>
-  </header>
-
-  <!-- المحتوى -->
-  <main id="news">
-    <div class="news-container">
-      <!-- كارت خبر -->
-      <div class="news-card">
-        <h3>إيمانويل في حوار ناري 🔥</h3>
-        <p>أكد إيمانويل أن اللعب في السنبلاوين شرف، وأن الجمهور يستحق كل التقدير.</p>
-        <img src="photo/player.png" alt="اللاعب إيمانويل" />
-      </div>
-
-      <div class="news-card">
-        <h3>السنبلاوين يفوز بهدف ⚽</h3>
-        <p>حقق فريق السنبلاوين فوزاً مستحقاً بنتيجة 1-0 في الجولة الأخيرة من الدوري.</p>
-        <img src="photo/match1.jpg" alt="مباراة السنبلاوين" />
-      </div>
-
-      <div class="news-card">
-        <h3>إطلاق تيشرت النادي الجديد 🧢</h3>
-        <p>تم الكشف عن الزي الجديد للنادي، تصميم عصري وجودة عالية.</p>
-        <img src="photo/shirt.jpg" alt="تيشرت السنبلاوين" />
-      </div>
-
-      <!-- أضف المزيد من الأخبار هنا بنفس الشكل -->
+    <!-- السلايدر -->
+    <div class="slider-container">
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <div class="slides">
+            <img src="photo/460398646_533084115896081_1779551710318789330_n.jpg" class="active" loading="lazy" alt="صورة 1">
+            <img src="photo/460036989_529786876225805_2979376982870754263_n.jpg" loading="lazy" alt="صورة 2">
+            <img src="photo/459371223_503225569126634_5346668128862271414_n.jpg" loading="lazy" alt="صورة 3">
+            <img src="photo/266775664_112733744585020_4813632058570573109_n.jpg" loading="lazy" alt="صورة 4">
+        </div>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
     </div>
-  </main>
 
-  <!-- الفوتر -->
-  <footer>
-    <p>© 2024 نادي السنبلاوين الرياضي. جميع الحقوق محفوظة.</p>
-  </footer>
+    <!-- الأقسام -->
+    <main>
+        <section>
+            <a href="about.html">
+                <h2>حول الموقع</h2>
+                <p>كل ما يخص أخبار نادي السنبلاوين الرياضي.</p>
+            </a>
+        </section>
+
+        <section>
+            <a href="team.html">
+                <h2>أعضاء الفريق</h2>
+                <p>تعرف على لاعبي الفريق والإداريين.</p>
+            </a>
+        </section>
+
+        <section>
+            <a href="photos.html">
+                <h2>آخر الصور</h2>
+                <p>شاهد الصور الحصرية للنادي.</p>
+            </a>
+        </section>
+
+        <section>
+            <a href="schedule.html">
+                <h2>جدول المباريات والترتيب</h2>
+                <p>جدول مباريات النادي وجدول الترتيب</p>
+            </a>
+        </section>
+
+        <section>
+            <a href="videos.html">
+                <h2>آخر الفيديوهات</h2>
+                <p>شاهد الفيديوهات الحصرية للنادي.</p>
+            </a>
+        </section>
+
+        <section>
+            <a href="news.html">
+                <h2>آخر الأخبار</h2>
+                <p>شاهد الأخبار الحصرية للنادي.</p>
+            </a>
+        </section>
+    </main>
+
+    <!-- صورة الراعي -->
+    <div class="sponsor">
+        <img src="photo/download.png" alt="صورة الراعي" class="sponsor-logo">
+        <img src="photo/Screenshot2024.png" alt="صورة الراعي" class="sponsor-logo">
+    </div>
+
+    <!-- الفوتر -->
+    <footer>
+        <p>&copy; 2024 نادي السنبلاوين الرياضي. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slides img');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 3000); // تشغيل تلقائي للسلايدر كل 3 ثواني
+    </script>
 </body>
 </html>
