@@ -1,196 +1,93 @@
+
+
+1/2
+
+
+
+
+
+You said:
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>حول الموقع - نادي السنبلاوين الرياضي</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حول الموقع - نادي السنبلاوين الرياضي</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* تنسيق عام */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      display: flex;
-      flex-direction: row-reverse;
-      padding-top: 80px;
-    }
+        header {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #0055a5;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-    header {
-      background-color: #0055a5;
-      color: #fff;
-      padding: 15px 20px;
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 4px solid #003d7a;
-    }
+        header img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%; /* يجعل الصورة دائرية */
+            margin-right: 15px;
+        }
 
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+        .header-text h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #fff;
+        }
 
-    .header-logo {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-    }
+        .header-text p {
+            margin: 5px 0 0;
+            font-size: 1rem;
+            color: #ccc;
+        }
 
-    .header-text h1 {
-      margin: 0;
-      font-size: 1.5rem;
-    }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
 
-    .header-text p {
-      margin: 2px 0 0;
-      font-size: 1rem;
-      color: #ccc;
-    }
-
-    aside {
-      width: 220px;
-      background-color: #003366;
-      height: 100vh;
-      position: fixed;
-      top: 80px;
-      right: 0;
-      padding-top: 20px;
-      color: white;
-    }
-
-    aside ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    aside li {
-      padding: 15px 20px;
-      border-bottom: 1px solid #005080;
-    }
-
-    aside a {
-      color: white;
-      text-decoration: none;
-      display: block;
-    }
-
-    aside a:hover {
-      background-color: #005080;
-      border-radius: 5px;
-    }
-
-    main {
-      flex-grow: 1;
-      margin-right: 240px;
-      padding: 40px 20px;
-    }
-
-    section {
-      background-color: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    section h2 {
-      color: #08089d;
-      margin-bottom: 20px;
-    }
-
-    section p {
-      font-size: 1.1rem;
-      color: #333;
-      line-height: 1.8;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #0603aa;
-      color: #fff;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-      z-index: 999;
-    }
-
-    @media (max-width: 768px) {
-      aside {
-        display: none;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      main {
-        margin: 0;
-        padding-top: 100px;
-      }
-
-      .header-text h1 {
-        font-size: 1.2rem;
-      }
-    }
-  </style>
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #0055a5;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <a href="index.html"> <!-- رابط الصفحة الرئيسية -->
+            <img src="photo/logo.jpg" alt="شعار نادي السنبلاوين الرياضي">
+        </a>
+        <div class="header-text">
+            <h1>أهلاً بك في نادي السنبلاوين الرياضي</h1>
+            <p>حول الموقع</p>
+        </div>
+    </header>
 
-  <!-- الهيدر -->
-  <header>
-    <div class="header-left">
-      <a href="index.html">
-        <img src="photo/logo.jpg" alt="شعار نادي السنبلاوين الرياضي" class="header-logo">
-      </a>
-      <div class="header-text">
-        <h1>أهلاً بك في نادي السنبلاوين الرياضي</h1>
-        <p>حول الموقع</p>
-      </div>
-    </div>
-  </header>
+    <main>
+        <section>
+            <h2>تعريف الموقع</h2>
+            <p>نادي السنبلاوين الرياضي هو منصة لتتبع جميع أخبار النادي، الصور، الفيديوهات، والأنشطة المختلفة. تأسس النادي عام 1976 وأصبح رمزًا للرياضة المحلية.</p>
+        </section>
+    </main>
 
-  <!-- القائمة الجانبية -->
-  <aside>
-    <ul>
-      <li><a href="index.html">الصفحة الرئيسية</a></li>
-      <li><a href="team.html">أعضاء الفريق</a></li>
-      <li><a href="photos.html">آخر الصور</a></li>
-      <li><a href="schedule.html">جدول المباريات</a></li>
-      <li><a href="videos.html">الفيديوهات</a></li>
-      <li><a href="news.html">آخر الأخبار</a></li>
-    </ul>
-  </aside>
-
-  <!-- المحتوى -->
-  <main>
-    <section>
-      <h2>تعريف الموقع</h2>
-      <p>
-        نادي السنبلاوين الرياضي هو منصة لتتبع جميع أخبار النادي، الصور، الفيديوهات، والأنشطة المختلفة. تأسس النادي عام 1976 وأصبح رمزًا للرياضة المحلية في مدينة السنبلاوين.
-      </p>
-    </section>
-  </main>
-
-  <!-- الفوتر -->
-  <footer>
-    <p>© 2024 نادي السنبلاوين الرياضي. جميع الحقوق محفوظة.</p>
-  </footer>
-
+    <footer>
+        <p>&copy; 2024 نادي السنبلاوين الرياضي. جميع الحقوق محفوظة.</p>
+    </footer>
 </body>
 </html>
 
