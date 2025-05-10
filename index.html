@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نادي السنبلاوين الرياضي</title>
-    <!-- Favicon -->
     <link rel="icon" href="photo/logo.ico" type="image/x-icon">
-    <!-- Google Verification -->
     <meta name="google-site-verification" content="KJbkjcVI3yWEf76UhDbwmnm74IlOvfeuntqzIaU8kN8" />
-    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -35,6 +32,10 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             background-color: #f4f4f4;
+            display: flex; /* عشان نرتب الهيدر والـ main جنب بعض */
+            flex-direction: column; /* العناصر تحت بعض في الوضع الافتراضي */
+            align-items: center; /* توسيط العناصر أفقياً */
+            min-height: 100vh; /* عشان الفوتر يلزق تحت */
         }
 
         /* الهيدر */
@@ -46,6 +47,7 @@
             align-items: center;
             gap: 10px;
             border-bottom: 5px solid #0603aa;
+            width: 100%; /* الهيدر ياخد عرض الشاشة كله */
         }
 
         .header-logo {
@@ -70,15 +72,24 @@
             font-size: 0.9rem;
         }
 
-        /* السلايدر */
-        .slider-container {
-            position: relative;
+        /* الحاوية الرئيسية */
+        main {
+            display: flex; /* عشان نرتب السلايدر والـ aside جنب بعض */
             width: 80%;
             margin: 20px auto;
             background-color: white;
-            padding: 10px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* عشان العناصر اللي هتطلع بره متبوظش الشكل */
+            flex-direction: row-reverse; /* عشان الـ aside يجي على اليمين */
+        }
+
+        /* السلايدر */
+        .slider-container {
+            position: relative;
+            width: 70%; /* هنخلي السلايدر ياخد جزء أكبر */
+            padding: 10px;
+            border-radius: 8px;
         }
 
         .slides img {
@@ -120,50 +131,95 @@
             right: 10px;
         }
 
-        /* الأقسام */
-        section {
-            padding: 2rem;
-            margin: 1rem auto;
+        /* الشريط الجانبي للأقسام */
+        aside {
+            width: 30%;
             background: #5d4ab1;
             color: white;
-            border-radius: 8px;
+            border-radius: 0 8px 8px 0;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            width: 80%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        section a {
+        aside a {
             text-decoration: none;
             color: white;
-            display: block;
             padding: 1rem 0;
+            transition: background-color 0.3s ease;
+            flex-grow: 1; /* عشان الأقسام تاخد مساحة متساوية */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        section a:hover {
-            color: #ffcc00;
+        aside a:hover {
+            background-color: #4a3b8a;
         }
 
-        section img {
-            max-width: 100px;
-            margin: 10px auto;
+        aside h2 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        aside p {
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        /* قسم الصور المميز */
+        .featured-section {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .featured-image-container {
+            position: relative;
+            width: 50%;
+            margin: 0 auto 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: auto;
             display: block;
-            transition: transform 0.3s ease;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
         }
 
-        section img:hover {
-            transform: scale(1.1);
+        .featured-image-container:hover .featured-image {
+            transform: scale(1.05);
+        }
+
+        .featured-text {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .featured-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .featured-link:hover {
+            background-color: #0056b3;
         }
 
         /* صورة الراعي */
         .sponsor {
             margin: 20px auto;
             text-align: center;
+            width: 80%; /* نفس عرض الـ main */
         }
 
         .sponsor-logo {
@@ -183,9 +239,8 @@
             padding: 10px;
             background: #0603aa;
             color: white;
-            position: fixed;
-            bottom: 0;
             width: 100%;
+            margin-top: auto; /* عشان يلزق في الآخر */
         }
 
         footer p {
@@ -194,98 +249,123 @@
 
         /* تصميم متجاوب */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.5rem;
+            body {
+                flex-direction: column; /* العناصر تحت بعض في الشاشات الصغيرة */
             }
 
-            .slider-container {
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            main {
+                flex-direction: column; /* السلايدر والأقسام تحت بعض */
                 width: 95%;
             }
 
-            section {
-                width: 90%;
+            .slider-container {
+                width: 100%;
             }
 
-            .header-logo {
-                width: 50px;
+            aside {
+                width: 100%;
+                flex-direction: row; /* الأقسام جنب بعض في الشاشات الصغيرة */
+                flex-wrap: wrap; /* لو الأقسام كتير تنزل في سطر جديد */
+                border-radius: 8px;
+            }
+
+            aside a {
+                width: 50%; /* كل قسم ياخد نص العرض */
+                box-sizing: border-box;
+                border-left: 1px solid #4a3b8a;
+            }
+
+            aside a:nth-child(even) {
+                border-left: none;
+            }
+
+            .featured-section {
+                padding: 1rem;
+            }
+
+            .featured-image-container {
+                width: 80%;
+            }
+
+            .sponsor {
+                width: 95%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- الهيدر -->
     <header>
         <a href="index.html">
             <img src="photo/logo.jpg" alt="شعار النادي" class="header-logo">
         </a>
-        <h1>نادي السنبلاوين الرياضي</h1>
-        <p>تابع آخر الأخبار، الصور، والفيديوهات الحصرية.</p>
+        <div>
+            <h1>نادي السنبلاوين الرياضي</h1>
+            <p>تابع آخر الأخبار، الصور، والفيديوهات الحصرية.</p>
+        </div>
     </header>
 
-    <!-- السلايدر -->
-    <div class="slider-container">
-        <button class="prev" onclick="prevSlide()">&#10094;</button>
-        <div class="slides">
-            <img src="photo/460398646_533084115896081_1779551710318789330_n.jpg" class="active" loading="lazy" alt="صورة 1">
-            <img src="photo/460036989_529786876225805_2979376982870754263_n.jpg" loading="lazy" alt="صورة 2">
-            <img src="photo/459371223_503225569126634_5346668128862271414_n.jpg" loading="lazy" alt="صورة 3">
-            <img src="photo/266775664_112733744585020_4813632058570573109_n.jpg" loading="lazy" alt="صورة 4">
-        </div>
-        <button class="next" onclick="nextSlide()">&#10095;</button>
-    </div>
-
-    <!-- الأقسام -->
     <main>
-        <section>
+        <aside>
             <a href="about.html">
                 <h2>حول الموقع</h2>
                 <p>كل ما يخص أخبار نادي السنبلاوين الرياضي.</p>
             </a>
-        </section>
-
-        <section>
             <a href="team.html">
                 <h2>أعضاء الفريق</h2>
                 <p>تعرف على لاعبي الفريق والإداريين.</p>
             </a>
-        </section>
-
-        <section>
             <a href="photos.html">
                 <h2>آخر الصور</h2>
                 <p>شاهد الصور الحصرية للنادي.</p>
             </a>
-        </section>
-
-        <section>
             <a href="schedule.html">
                 <h2>جدول المباريات والترتيب</h2>
                 <p>جدول مباريات النادي وجدول الترتيب</p>
             </a>
-        </section>
-
-        <section>
             <a href="videos.html">
                 <h2>آخر الفيديوهات</h2>
                 <p>شاهد الفيديوهات الحصرية للنادي.</p>
             </a>
-        </section>
-
-        <section>
             <a href="news.html">
                 <h2>آخر الأخبار</h2>
                 <p>شاهد الأخبار الحصرية للنادي.</p>
             </a>
-        </section>
+        </aside>
+
+        <div style="width: 100%;">
+            <div class="slider-container">
+                <button class="prev" onclick="prevSlide()">&#10094;</button>
+                <div class="slides">
+                    <img src="photo/460398646_533084115896081_1779551710318789330_n.jpg" class="active" loading="lazy" alt="صورة 1">
+                    <img src="photo/460036989_529786876225805_2979376982870754263_n.jpg" loading="lazy" alt="صورة 2">
+                    <img src="photo/459371223_503225569126634_5346668128862271414_n.jpg" loading="lazy" alt="صورة 3">
+                    <img src="photo/266775664_112733744585020_4813632058570573109_n.jpg" loading="lazy" alt="صورة 4">
+                </div>
+                <button class="next" onclick="nextSlide()">&#10095;</button>
+            </div>
+
+            <section class="featured-section">
+                <h2>صور من مباراتنا الأخيرة</h2>
+                <div class="featured-image-container">
+                    <img src="photo/460398646_533084115896081_1779551710318789330_n.jpg" alt="صور من المباراة الأخيرة" class="featured-image">
+                </div>
+                <p class="featured-text">لقطات حصرية من آخر مباريات نادينا.</p>
+                <a href="photos.html" class="featured-link">شاهد المزيد من الصور</a>
+            </section>
+        </div>
     </main>
 
-    <!-- صورة الراعي -->
     <div class="sponsor">
         <img src="photo/download.png" alt="صورة الراعي" class="sponsor-logo">
         <img src="photo/Screenshot2024.png" alt="صورة الراعي" class="sponsor-logo">
     </div>
 
-    <!-- الفوتر -->
     <footer>
         <p>&copy; 2024 نادي السنبلاوين الرياضي. جميع الحقوق محفوظة.</p>
     </footer>
