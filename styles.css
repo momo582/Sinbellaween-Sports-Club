@@ -1,38 +1,38 @@
-/* Reset بعض الإعدادات الافتراضية للمتصفح */
-body, h1, h2, h3, p, ul, table, th, td {
+/* Reset */
+* {
     margin: 0;
     padding: 0;
-    border: 0;
     box-sizing: border-box;
 }
 
-/* إعدادات الخطوط والخلفيات */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333; /* تم تغيير لون النص الأساسي ليكون أكثر وضوحًا */
+    color: #333;
     background-color: #f4f4f4;
-    padding-top: 60px; /* تم تعديل قيمة padding-top لتناسب الهيدر الثابت */
+    padding-top: 60px;
+    display: flex; /* عشان نحط العنصر الجانبي والمحتوى جنب بعض */
+    flex-direction: row-reverse; /* عشان العنصر الجانبي يجي على الشمال */
+    min-height: 100vh;
 }
 
-/* تصميم الهيدر */
 header {
     background-color: #08089d;
     color: white;
     padding: 10px 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* لتوزيع الشعار والعنوان بشكل أفضل */
+    justify-content: space-between;
     gap: 20px;
     border-bottom: 5px solid #0603aa;
-    position: sticky; /* لجعل الهيدر ثابتًا في الأعلى */
+    position: sticky;
     top: 0;
     z-index: 1000;
+    width: 100%; /* عشان يمتد على كامل العرض */
 }
 
-/* الشعار */
 .header-logo {
-    width: 40px; /* حجم الشعار */
+    width: 40px;
     height: auto;
     border-radius: 50%;
     cursor: pointer;
@@ -53,113 +53,150 @@ header p {
     font-size: 0.8rem;
 }
 
-/* تصميم الأقسام العامة */
-section {
-    padding: 2rem;
-    margin: 1rem auto;
-    background: #fff; /* تم تغيير لون الخلفية ليكون أفتح */
+/* العنصر الجانبي الثابت */
+.sidebar {
+    width: 100px; /* عرض الشريط الجانبي */
+    background-color: #f8f8f8;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed; /* ثابت على الشاشة */
+    top: 50%; /* توسيط عمودي مبدئي */
+    left: 20px; /* مسافة من اليسار */
+    transform: translateY(-50%); /* توسيط عمودي دقيق */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    color: #333; /* تم تغيير لون النص ليكون أغمق */
-    text-align: center;
-    width: 80%;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    z-index: 998; /* أقل من الهيدر والفوتر */
 }
 
-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* الروابط داخل الأقسام */
-section a {
-    text-decoration: none;
-    color: #007bff; /* لون الروابط الأساسي */
-    display: block;
-    padding: 1rem 0;
-    transition: color 0.3s ease-in-out;
-}
-
-section a:hover {
-    color: #0056b3; /* لون الروابط عند التحويم */
-}
-
-section img {
-    max-width: 100px;
-    margin: 10px auto;
-    display: block;
-    border-radius: 8px;
+.sidebar img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 15px;
     transition: transform 0.3s ease-in-out;
 }
 
-section img:hover {
+.sidebar img:hover {
     transform: scale(1.1);
 }
 
-/* تصميم الجداول */
-table {
-    width: 90%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    text-align: center;
-    background-color: #fff;
+/* حاوية المحتوى الرئيسية */
+.main-content {
+    width: 80%; /* عرض المحتوى الرئيسي */
+    margin: 20px auto; /* توسيط أفقي */
+    padding-bottom: 60px; /* مساحة للفوتر الثابت */
+}
+
+/* تصميم الأقسام */
+.club-info, .team, .photos-section, .schedule-section, .videos-section, .news-section {
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background: #fff;
     border-radius: 8px;
-    overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    opacity: 0; /* مخفي في البداية لتأثير الظهور */
+    transform: translateY(20px); /* محرك للأسفل قليلاً في البداية */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-th, td {
-    padding: 12px 20px;
+.club-info.show, .team.show, .photos-section.show, .schedule-section.show, .videos-section.show, .news-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.club-info h2, .team h2, .photos-section h2, .schedule-section h2, .videos-section h2, .news-section h2 {
+    color: #08089d;
+    margin-bottom: 1rem;
+}
+
+.club-info p {
+    color: #333;
+    line-height: 1.8;
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.team-member {
+    width: 150px;
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.photos-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.schedule-table th, .schedule-table td {
     border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
 }
 
-th {
+.schedule-table th {
     background-color: #08089d;
     color: white;
-    font-weight: bold;
 }
 
-td {
-    color: #333;
+.videos-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
 }
 
-tr:nth-child(even) {
-    background-color: #f4f4f4;
-}
-
-tr:hover {
-    background-color: #ddd;
-}
-
-/* تصميم الفيديوهات */
-video {
-    width: 80%;
-    margin: 20px auto;
-    display: block;
+.video-item {
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* تصميم الأزرار */
-button, .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+.news-item {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
 }
 
-button:hover, .btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+.news-item h3 {
+    color: #08089d;
+    margin-bottom: 5px;
 }
 
-button:active, .btn:active {
-    transform: scale(0.95);
+.news-item p {
+    color: #666;
+}
+
+.news-item:last-child {
+    border-bottom: none;
 }
 
 /* الفوتر */
@@ -178,20 +215,14 @@ footer p {
     margin: 0;
 }
 
-/* تأثيرات الصور والفيديوهات */
-.gallery img {
-    max-width: 200px;
-    margin: 10px;
-    border-radius: 8px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.gallery img:hover {
-    transform: scale(1.1);
-}
-
 /* إعدادات للشاشات الأصغر */
 @media (max-width: 768px) {
+    body {
+        flex-direction: column; /* العناصر تحت بعض */
+        align-items: center; /* توسيط المحتوى */
+        padding-top: 110px; /* مساحة للهيدر الثابت */
+    }
+
     header {
         flex-direction: column;
         align-items: center;
@@ -199,35 +230,34 @@ footer p {
         padding: 10px;
     }
 
-    .header-logo {
-        width: 50px;
+    .sidebar {
+        position: static; /* عادي في الشاشات الصغيرة */
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-bottom: 20px;
+        transform: translateY(0);
+        left: 0;
+        top: auto;
+        padding: 15px 10px;
     }
 
-    header h1 {
-        font-size: 1.2rem;
+    .sidebar img {
+        margin-bottom: 0;
+        width: 40px;
     }
 
-    header p {
-        font-size: 0.7rem;
-    }
-
-    section {
+    .main-content {
         width: 95%;
-        padding: 1.5rem;
-        margin: 0.75rem auto;
+        margin: 10px auto;
+        padding-bottom: 60px;
     }
 
-    section a {
-        padding: 0.75rem 0;
-        font-size: 0.9rem;
+    .photos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 
-    video {
-        width: 95%;
-    }
-
-    button, .btn {
-        font-size: 14px;
-        padding: 8px 15px;
+    .videos-list {
+        grid-template-columns: 1fr;
     }
 }
